@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Tags - Tag - 渣渣的夏天</title>
+        <title>Tags - Tag - linxianwen blog</title>
         <link>http://localhost:1313/en/tags/</link>
-        <description>Tags - Tag - 渣渣的夏天</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>summer2zz@163.com (渣渣的夏天)</managingEditor>
-            <webMaster>summer2zz@163.com (渣渣的夏天)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="http://localhost:1313/en/tags/" rel="self" type="application/rss+xml" /></channel>
+        <description>Tags - Tag - linxianwen blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>xianln23@163.com (linxianwen blog)</managingEditor>
+            <webMaster>xianln23@163.com (linxianwen blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="http://localhost:1313/en/tags/" rel="self" type="application/rss+xml" /></channel>
 </rss>

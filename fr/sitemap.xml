@@ -15,19 +15,6 @@
                     hreflang="fr"
                     href="http://localhost:1313/fr/categories/"
                     /></url><url>
-            <loc>http://localhost:1313/fr/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="http://localhost:1313/en/tags/"
-                        /><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="http://localhost:1313/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="fr"
-                    href="http://localhost:1313/fr/tags/"
-                    /></url><url>
             <loc>http://localhost:1313/fr/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -40,4 +27,17 @@
                     rel="alternate"
                     hreflang="fr"
                     href="http://localhost:1313/fr/"
+                    /></url><url>
+            <loc>http://localhost:1313/fr/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://localhost:1313/en/tags/"
+                        /><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="http://localhost:1313/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="fr"
+                    href="http://localhost:1313/fr/tags/"
                     /></url></urlset>
