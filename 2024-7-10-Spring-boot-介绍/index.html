@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Springboot的介绍 - linxianwen blog</title>
+    <meta name="Description" content="Springboot的读书笔记">
+    <meta property="og:title" content="一、Kubernetes的介绍" />
+    <meta property="og:description" content="Springboot的读书笔记" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url"
+        content="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/" />
+    <meta property="og:image"
+        content="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/featured-image.png" />
+    <meta property="article:section" content="posts" />
+    <meta property="article:published_time" content="2019-09-10T21:56:51+08:00" />
+    <meta property="article:modified_time" content="2019-09-10T21:56:51+08:00" />
+    <meta name="application-name" content="LoveIt">
+    <meta name="apple-mobile-web-app-title" content="LoveIt">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="canonical"
+        href="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/" />
+    <link rel="next"
+        href="https://yeliansong.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Springboot的介绍",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D\/featured-image.png",
+                            "width":  2048 ,
+                            "height":  1362 
+                        }],"genre": "posts","keywords": "K8S, 微服务","wordcount":  973 ,
+        "url": "https:\/\/yeliansong.github.io\/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D\/","datePublished": "2019-09-10T21:56:51+08:00","dateModified": "2019-09-10T21:56:51+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "K8S学习的读书笔记"
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-193031966-2');
+    </script>
+</head>
+
+<body header-desktop="fixed" header-mobile="auto">
+    <script
+        type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div>
+    <div class="wrapper">
+        <header class="desktop" id="header-desktop">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <a href="/" title="linxianwen blog"><span class="header-title-pre"><i
+                                class='fas fa-user-secret fa-fw'></i></span> linxianwen blog</a>
+                </div>
+                <div class="menu">
+                    <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item"
+                            href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item"
+                            href="/about/"> 关于 </a><a class="menu-item" href="https://www.linkedin.com/in/liansongye"
+                            title="Linkedin" rel="noopener noreffer" target="_blank"><i
+                                class='fab fa-linkedin-in fa-fw'></i> </a><span class="menu-item delimiter"></span><a
+                            href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i
+                                class="fas fa-chevron-right fa-fw"></i>
+                            <select class="language-select" id="language-select-desktop"
+                                onchange="location = this.value;">
+                                <option value="/en/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/">English
+                                </option>
+                                <option value="/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/" selected>
+                                    简体中文</option>
+                            </select>
+                        </a><span class="menu-item search" id="search-desktop">
+                            <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop"
+                                title="搜索">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop"
+                                title="清空">
+                                <i class="fas fa-times-circle fa-fw"></i>
+                            </a>
+                            <span class="search-button search-loading" id="search-loading-desktop">
+                                <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            </span>
+                        </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                            <i class="fas fa-adjust fa-fw"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <header class="mobile" id="header-mobile">
+            <div class="header-container">
+                <div class="header-wrapper">
+                    <div class="header-title">
+                        <a href="/" title="linxianwen blog"><span class="header-title-pre"><i
+                                    class='fas fa-user-astronaut'></i></span> linxianwen blog </a>
+                    </div>
+                    <div class="menu-toggle" id="menu-toggle-mobile">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="menu" id="menu-mobile">
+                    <div class="search-wrapper">
+                        <div class="search mobile" id="search-mobile">
+                            <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile"
+                                title="搜索">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile"
+                                title="清空">
+                                <i class="fas fa-times-circle fa-fw"></i>
+                            </a>
+                            <span class="search-button search-loading" id="search-loading-mobile">
+                                <i class="fas fa-spinner fa-fw fa-spin"></i>
+                            </span>
+                        </div>
+                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                            取消
+                        </a>
+                    </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/"
+                        title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item"
+                        href="/about/" title="">关于</a><a class="menu-item" href="https://www.linkedin.com/in/liansongye"
+                        title="Linkedin" rel="noopener noreffer" target="_blank"><i
+                            class='fab fa-linkedin-in fa-fw'></i></a><a href="javascript:void(0);"
+                        class="menu-item theme-switch" title="切换主题">
+                        <i class="fas fa-adjust fa-fw"></i>
+                    </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i
+                            class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" onchange="location = this.value;">
+                            <option value="/en/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/">English
+                            </option>
+                            <option value="/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/" selected>简体中文
+                            </option>
+                        </select>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="search-dropdown desktop">
+            <div id="search-dropdown-desktop"></div>
+        </div>
+        <div class="search-dropdown mobile">
+            <div id="search-dropdown-mobile"></div>
+        </div>
+        <main class="main">
+            <div class="container">
+                <div class="toc" id="toc-auto">
+                    <h2 class="toc-title">目录</h2>
+                    <div class="toc-content" id="toc-content-auto"></div>
+                </div>
+                <article class="page single">
+                    <h1 class="single-title animated flipInX">Springboot的介绍</h1>
+                    <h2 class="single-subtitle">Springboot 读书笔记</h2>
+                    <div class="post-meta">
+                        <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author"
+                                    class="author"><i class="fas fa-user-circle fa-fw"></i>Xianwen</a></span>&nbsp;<span
+                                class="post-category">收录于 <a href="/categories/Java"><i
+                                        class="far fa-folder fa-fw"></i>Springboot-学习笔记</a></span></div>
+                        <div class="post-meta-line">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="featured-image"><img class="lazyload" src="/svg/loading.min.svg"
+                            data-src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain"
+                            data-srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain, https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain 1.5x, https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain 2x"
+                            data-sizes="auto"
+                            alt="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain/featured-image.png"
+                            title="K8S学习的读书笔记" /></div>
+                    <div class="details toc" id="toc-static" kept="">
+                        <div class="details-summary toc-title">
+                            <span>目录</span>
+                            <span><i class="details-icon fas fa-angle-right"></i></span>
+                        </div>
+                        <div class="details-content toc-content" id="toc-content-static">
+                            <nav id="TableOfContents">
+                                <ul>
+                                    <li>
+                                        <ul>
+                                            <li><a href="#1-什么是 Spring Boot？">1. 什么是 Spring Boot？</a></li>
+                                            <li><a href="#2-Spring 和 Spring Boot 之间有什么区别？">2. Spring 和 Spring Boot 之间有什么区别？</a></li>
+                                            <li><a href="#3-什么是微服务？">3. 什么是微服务？</a></li>
+                                            <li><a href="#4-什么是依赖项注入？">4. 什么是依赖项注入？</a></li>
+                                            <li><a href="#5-什么是约定优于配置？">5. 什么是约定优于配置？</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="content" id="content">
+                        <h3 id="1-什么是 Spring Boot？">1. 什么是 Spring Boot？</h3>
+                        <p>Java Spring Boot 是一种开放源代码工具，可以更轻松地使用基于 Java 的框架来创建微服务和 Web 应用。对于任何 Spring Boot 的定义，对话必须从 Java 开始（Java 是应用开发中最热门且使用最广泛的开发语言和计算平台之一）。全球各地的开发人员的编码之旅均始于 Java。Java 灵活且易于使用，各种应用程序（从社交媒体、Web 和游戏应用，到网络和企业应用程序）的开发人员都喜欢使用它。</p>
+                        <h6>Java 和 Spring 框架</h6>
+                        <p>
+                            虽然 Java 可能比其他语言更易于使用和学习，但构建、调试和部署 Java 应用的复杂性已经上升到令人眼花缭乱的新高度。这是因为现代开发人员针对常见的现代技术（例如音乐流或移动现金支付应用程序）开发 Web 应用或移动应用时面临着指数级变量。开发人员在编写基本业务线应用时，现在需要管理多个库、插件、错误日志记录，还需处理库、与 Web 服务的集成以及多种语言（例如 C#、Java、HTML 等）。可以理解的是，对于能够简化 Java 应用开发、节省开发人员时间和金钱的任何工具，需求永难满足。
+                        </p>
+                        <p>
+                            输入应用程序框架：大量预先编写的代码，开发人员可以根据需要使用并添加到自己的代码中。无论是开发移动应用和 Web 应用，还是使用桌面和 API，这些框架几乎都能够减轻开发人员任何需求的负担。框架提供可重用的代码和工具来帮助将软件开发项目的不同元素整合在一起，从而使应用的创建过程更快、更简单且更安全。
+                        </p>
+                        <p>
+                            Spring 是开放源代码项目，可提供一种简化的创建 Java 应用的模块化方法。Spring 项目系列于 2003 年启动，以响应早期 Java 开发的复杂性，并提供对开发 Java 应用的支持。Spring 这个名称通常是指应用程序框架本身或整个项目组或模块。Java Spring Boot 是作为 Spring 框架的扩展构建的一个特定模块。
+                        </p>
+                        <p>
+                            因此，在 Spring 框架、Spring Boot 和 Java 如何协同工作的背景后，Spring Boot 的定义为：简化并加速 Java 框架 Spring 内的 Web 应用和微服务开发。
+                        </p>
+                        <p>
+                            有时，由于语言和/或平台是 Java，因此称为“Java Spring Boot”、“Java Spring 框架”或“Spring Boot 框架”。但是，由于还有其他适用于 Java 的第三方框架（如 Play 和 Hibernate），因此称为“Spring”和“Spring Boot”更准确
+                        </p>
+                        <h3 id="2-Spring 和 Spring Boot 之间有什么区别？">2. Spring 和 Spring Boot 之间有什么区别？</h3>
+                        <p>
+                            如前所述，Spring 是基于 Java 的开放源代码应用框架，其范围涵盖许多小型项目。其他热门 Spring 项目包括 Spring Data、Spring Cloud 和 Spring Security，这里仅举其中几个例子。要了解 Spring Boot 与Spring 之间的区别，重要的是要认识到，虽然核心功能可能存在差异，但它们都属于 Spring 系列。
+                        </p>
+                        <h3 id="3-什么是微服务？">3. 什么是微服务？</h3>
+                        <p>
+                            微服务 是软件开发体系结构的方法。微服务中的“微”是指以较小、可管理的片段或组件的形式交付代码，并且每个“服务”或核心功能都独立于其他服务进行创建和部署。独立组件通过称为协定的指定 API 文档协同工作并相互通信。这些微服务的小规模和相对隔离的特征具有许多优点。例如，由于这种类型的体系结构是分布式且松散耦合的，因此即使有一个组件发生故障，也不会导致整个应用中断。其他优点包括，提高生产力、简化维护任务、增强业务一致性，以及提升容错能力。
+                        </p>
+                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/what-is-java-spring-boot_mt1-dependency-injection?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1466&hei=866&qlt=100&fmt=png-alpha&fit=constrain"
+                            style="zoom:200%;" />
+                        <h3 id="4-什么是依赖项注入？">4. 什么是依赖项注入？</h3>
+                        <p>
+                            依赖项注入 (DI) 是用于实现控制反转 (IoC) 的设计技术。在面向对象的编程（如 Java）中，依赖于其他对象的对象称为依赖项。通常，接收对象或依赖对象称为客户端，客户端依赖的对象称为服务。因此，依赖项注入会将服务传递给客户端，或者使用称为注入程序的代码注入依赖项。DI 无需客户端来指定使用哪些服务，因为注入程序会为客户端完成这项工作。
+                        </p>
+                        <h3 id="5-什么是约定优于配置？">5. 什么是约定优于配置？</h3>
+                        <p>
+                            约定优于配置（有时称为按约定编码）是应用程序框架中使用的一个概念，用于减少开发人员必须做出的决策数。此概念遵循“不要自我重复”原则以避免编写冗余代码。按约定编码力求保持灵活性，同时允许开发人员仅针对自己创建的应用的非常规方面编写代码。当应用的所需行为与建立的约定匹配时，应用将默认运行，而无需编写配置文件。仅当所需行为偏离约定时，开发人员才需要显式写入配置文件。
+                        </p>
+                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/what-is-java-spring-boot_mt1-convention?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1466&hei=866&qlt=100&fmt=png-alpha&fit=constrain"
+                            style="zoom:150%;" />
+                    </div>
+                    <div class="post-footer" id="post-footer">
+                        <div class="post-info">
+                            <div class="post-info-line">
+                                <div class="post-info-mod">
+                                    <span>更新于 2024-07-10 21:56:51</span>
+                                </div>
+                                <div class="post-info-license"></div>
+                            </div>
+                            <div class="post-info-line">
+                                <div class="post-info-md"></div>
+                                <div class="post-info-share">
+                                    <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter"
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-title="一、Kubernetes的介绍" data-hashtags="K8S,微服务"><i
+                                                class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);"
+                                            title="分享到 Facebook" data-sharer="facebook"
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-hashtag="K8S"><i class="fab fa-facebook-square fa-fw"></i></a><a
+                                            href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin"
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"><i
+                                                class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);"
+                                            title="分享到 WhatsApp" data-sharer="whatsapp"
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-title="一、Kubernetes的介绍" data-web><i
+                                                class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);"
+                                            title="分享到 Line" data-sharer="line"
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-title="一、Kubernetes的介绍"><i
+                                                data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a
+                                            href="javascript:void(0);" title="分享到 微博" data-sharer="weibo"
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-title="一、Kubernetes的介绍"><i class="fab fa-weibo fa-fw"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-info-more">
+                            <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a
+                                    href="/tags/Java/">Java</a>,&nbsp;<a href="/tags/framework">框架</a>
+                            </section>
+                            <section>
+                                <span><a href="javascript:void(0);"
+                                        onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a
+                                        href="/">主页</a></span>
+                            </section>
+                        </div>
+                    </div>
+                    <div id="comments">
+                        <div id="disqus_thread" class="comment"></div><noscript>
+                            Please enable JavaScript to view the comments powered by <a
+                                href="https://disqus.com/?ref_noscript">Disqus</a>.
+                        </noscript>
+                        <div id="utterances"></div><noscript>
+                            Please enable JavaScript to view the comments powered by <a
+                                href="https://utteranc.es/">Utterances</a>.
+                        </noscript>
+                    </div>
+                </article>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-line"><i class="far fa-copyright fa-fw"></i><span
+                        itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a
+                            href="/" target="_blank">linxianwen blog</a></span>&nbsp;|&nbsp;<span class="license"><a
+                            rel="license external nofollow noopener noreffer"
+                            href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC
+                            4.0</a></span></br>
+                    <span id="busuanzi_container_site_pv">
+                        访问量 <span id="busuanzi_value_site_pv"></span> 次
+                    </span>
+                    &nbsp;|&nbsp;
+                    <span id="busuanzi_container_site_uv">
+                        访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                    </span>
+                    </br>
+                    <script>
+                        function siteTime() {
+                            var seconds = 1000;
+                            var minutes = seconds * 60;
+                            var hours = minutes * 60;
+                            var days = hours * 24;
+                            var years = days * 365;
+                            var today = new Date();
+                            var startYear = 2024;
+                            var startMonth = 7;
+                            var startDate = 27;
+                            var startHour = 19;
+                            var startMinute = 15;
+                            var startSecond = 11;
+                            var todayYear = today.getFullYear();
+                            var todayMonth = today.getMonth() + 1;
+                            var todayDate = today.getDate();
+                            var todayHour = today.getHours();
+                            var todayMinute = today.getMinutes();
+                            var todaySecond = today.getSeconds();
+                            var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                            var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                            var diff = t2 - t1;
+                            var diffYears = Math.floor(diff / years);
+                            var diffDays = Math.floor((diff / days) - diffYears * 365);
+                            var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                            var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                                minutes);
+                            var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                                diffMinutes * minutes) / seconds);
+                            if (startYear == todayYear) {
+
+                                document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                    " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                            } else {
+
+                                document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                    " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                            }
+                        }
+                        setInterval(siteTime, 1000);
+                    </script>
+                    <span id="sitetime">载入运行时间...</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css">
+    <script type="text/javascript" src="https://.disqus.com/embed.js" defer></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script>
+    <script
+        type="text/javascript">window.config = { "code": { "copyTitle": "复制到剪贴板", "maxShownLines": 10 }, "comment": { "utterances": { "darkTheme": "github-dark", "issueTerm": "pathname", "label": "", "lightTheme": "github-light", "repo": "yeliansong/liansong_hugo-blog-talk" } }, "lightGallery": { "actualSize": false, "exThumbImage": "data-thumbnail", "hideBarsDelay": 2000, "selector": ".lightgallery", "speed": 400, "thumbContHeight": 80, "thumbWidth": 80, "thumbnail": true }, "search": { "algoliaAppID": "PASDMWALPK", "algoliaIndex": "index.zh-cn", "algoliaSearchKey": "b42948e51daaa93df92381c8e2ac0f93", "highlightTag": "em", "maxResultLength": 10, "noResultsFound": "没有找到结果", "snippetLength": 50, "type": "algolia" } };</script>
+    <script type="text/javascript" src="/js/theme.min.js"></script>
+</body>
+
+</html>
