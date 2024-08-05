@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <title>Springboot的介绍 - linxianwen blog</title>
-    <meta name="Description" content="Springboot的读书笔记">
-    <meta property="og:title" content="Springboot的介绍" />
-    <meta property="og:description" content="Springboot的读书笔记" />
+    <title>RESTful API的介绍 - linxianwen blog</title>
+    <meta name="Description" content="RESTful API的读书笔记">
+    <meta property="og:title" content="RESTful API的介绍" />
+    <meta property="og:description" content="RESTful API的读书笔记" />
     <meta property="og:type" content="article" />
     <meta property="article:section" content="posts" />
-    <meta property="article:published_time" content="2024-07-10T21:56:51+08:00" />
-    <meta property="article:modified_time" content="2024-07-10T21:56:51+08:00" />
+    <meta property="article:published_time" content="2019-09-10T21:56:51+08:00" />
+    <meta property="article:modified_time" content="2019-09-10T21:56:51+08:00" />
     <meta name="application-name" content="LoveIt">
     <meta name="apple-mobile-web-app-title" content="LoveIt">
     <meta name="theme-color" content="#ffffff">
@@ -24,6 +24,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="canonical"
+        href="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/" />
+    <link rel="next"
+        href="https://yeliansong.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/css/style.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
@@ -32,23 +36,23 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Springboot的介绍",
+        "headline": "RESTful API的介绍",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/linxianwen.github.io\/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D\/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "https:\/\/linxianwen.github.io\/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D\/featured-image.png",
+                            "url": "https:\/\/linxianwen.github.io\/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D\/featured-image.png",
                             "width":  2048 ,
                             "height":  1362 
-                        }],"genre": "posts","keywords": "springboot, Java","wordcount":  973 ,
-        "url": "https:\/\/linxianwen.github.io\/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D\/","datePublished": "2019-09-10T21:56:51+08:00","dateModified": "2019-09-10T21:56:51+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                        }],"genre": "posts","keywords": "K8S, 微服务","wordcount":  973 ,
+        "url": "https:\/\/yeliansong.github.io\/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D\/","datePublished": "2019-09-10T21:56:51+08:00","dateModified": "2019-09-10T21:56:51+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "linxianwen blog","logo": "https:\/\/linxianwen.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
                 "name": "Xianwen"
-            },"description": "Springbooot学习的读书笔记"
+            },"description": "RESTful API学习的读书笔记"
     }
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
@@ -84,9 +88,9 @@
                                 class="fas fa-chevron-right fa-fw"></i>
                             <select class="language-select" id="language-select-desktop"
                                 onchange="location = this.value;">
-                                <option value="/en/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D/">English
+                                <option value="/en/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/">English
                                 </option>
-                                <option value="/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D/" selected>
+                                <option value="/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/" selected>
                                     简体中文</option>
                             </select>
                         </a><span class="menu-item search" id="search-desktop">
@@ -171,23 +175,23 @@
                     <div class="toc-content" id="toc-content-auto"></div>
                 </div>
                 <article class="page single">
-                    <h1 class="single-title animated flipInX">Springboot的介绍</h1>
-                    <h2 class="single-subtitle">Springboot 读书笔记</h2>
+                    <h1 class="single-title animated flipInX">RESTful API的介绍</h1>
+                    <h2 class="single-subtitle">RESTful API 读书笔记</h2>
                     <div class="post-meta">
                         <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author"
-                                    class="author"><i class="fas fa-user-circle fa-fw"></i>Xianwen</a></span>&nbsp;&nbsp;<span
-                                class="post-category">收录于 <a href="/categories/Java"><i
-                                        class="far fa-folder fa-fw"></i>Springboot-学习笔记</a></span></div>
+                                    class="author"><i class="fas fa-user-circle fa-fw"></i>Xianwen</a></span>&nbsp;<span
+                                class="post-category">收录于 <a href="/categories/architectural-style"><i
+                                        class="far fa-folder fa-fw"></i>RESTful API-学习笔记</a></span></div>
                         <div class="post-meta-line">
                             </span>
                         </div>
                     </div>
                     <div class="featured-image"><img class="lazyload" src="/svg/loading.min.svg"
-                            data-src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain"
-                            data-srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain, https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain 1.5x, https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain 2x"
+                            data-src="https://images.ctfassets.net/vwq10xzbe6iz/5sBH4Agl614xM7exeLsTo7/9e84dce01735f155911e611c42c9793f/rest-api.png"
+                            data-srcset="https://images.ctfassets.net/vwq10xzbe6iz/5sBH4Agl614xM7exeLsTo7/9e84dce01735f155911e611c42c9793f/rest-api.png, https://images.ctfassets.net/vwq10xzbe6iz/5sBH4Agl614xM7exeLsTo7/9e84dce01735f155911e611c42c9793f/rest-api.png 1.5x, https://images.ctfassets.net/vwq10xzbe6iz/5sBH4Agl614xM7exeLsTo7/9e84dce01735f155911e611c42c9793f/rest-api.png 2x"
                             data-sizes="auto"
-                            alt="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/hero-image-javaspring?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=5760&qlt=100&fit=constrain/featured-image.png"
-                            title="Springboot学习的读书笔记" /></div>
+                            alt="https://images.ctfassets.net/vwq10xzbe6iz/5sBH4Agl614xM7exeLsTo7/9e84dce01735f155911e611c42c9793f/rest-api.png"
+                            title="RESTful API学习的读书笔记" /></div>
                     <div class="details toc" id="toc-static" kept="">
                         <div class="details-summary toc-title">
                             <span>目录</span>
@@ -198,11 +202,10 @@
                                 <ul>
                                     <li>
                                         <ul>
-                                            <li><a href="#1-什么是 Spring Boot？">1. 什么是 Spring Boot？</a></li>
-                                            <li><a href="#2-Spring 和 Spring Boot 之间有什么区别？">2. Spring 和 Spring Boot 之间有什么区别？</a></li>
-                                            <li><a href="#3-什么是微服务？">3. 什么是微服务？</a></li>
-                                            <li><a href="#4-什么是依赖项注入？">4. 什么是依赖项注入？</a></li>
-                                            <li><a href="#5-什么是约定优于配置？">5. 什么是约定优于配置？</a></li>
+                                            <li><a href="#1-什么是 REST API？">1. 什么是 REST API？</a></li>
+                                            <li><a href="#2-REST 设计原则">2. REST 设计原则</a></li>
+                                            <li><a href="#3-REST API 的工作原理">3. REST API 的工作原理</a></li>
+                                            <li><a href="#4-REST API 最佳实践">4. REST API 最佳实践</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -210,44 +213,69 @@
                         </div>
                     </div>
                     <div class="content" id="content">
-                        <h3 id="1-什么是 Spring Boot？">1. 什么是 Spring Boot？</h3>
-                        <p>Java Spring Boot 是一种开放源代码工具，可以更轻松地使用基于 Java 的框架来创建微服务和 Web 应用。对于任何 Spring Boot 的定义，对话必须从 Java 开始（Java 是应用开发中最热门且使用最广泛的开发语言和计算平台之一）。全球各地的开发人员的编码之旅均始于 Java。Java 灵活且易于使用，各种应用程序（从社交媒体、Web 和游戏应用，到网络和企业应用程序）的开发人员都喜欢使用它。</p>
-                        <h6>Java 和 Spring 框架</h6>
-                        <p>
-                            虽然 Java 可能比其他语言更易于使用和学习，但构建、调试和部署 Java 应用的复杂性已经上升到令人眼花缭乱的新高度。这是因为现代开发人员针对常见的现代技术（例如音乐流或移动现金支付应用程序）开发 Web 应用或移动应用时面临着指数级变量。开发人员在编写基本业务线应用时，现在需要管理多个库、插件、错误日志记录，还需处理库、与 Web 服务的集成以及多种语言（例如 C#、Java、HTML 等）。可以理解的是，对于能够简化 Java 应用开发、节省开发人员时间和金钱的任何工具，需求永难满足。
+                        <h3 id="1-什么是 REST API？">1. 什么是 REST API？</h3>
+                        <p>REST API（也称为 RESTful API 或 RESTful Web API）是一种 应用程序编程接口 (API)，它符合 具象状态传输 (REST) 架构风格的设计原则。REST API 提供了一种灵活、轻量级的方式来集成应用程序并连接微服务架构中的组件。
                         </p>
                         <p>
-                            输入应用程序框架：大量预先编写的代码，开发人员可以根据需要使用并添加到自己的代码中。无论是开发移动应用和 Web 应用，还是使用桌面和 API，这些框架几乎都能够减轻开发人员任何需求的负担。框架提供可重用的代码和工具来帮助将软件开发项目的不同元素整合在一起，从而使应用的创建过程更快、更简单且更安全。
+                            REST 最早是由计算机科学家 Roy Fielding 博士于 2000 年在他的博士论文中定义，它为开发人员提供了相对较高的灵活性、可扩展性和效率。出于这些原因，REST API 已成为在微服务架构中连接组件和应用程序的常用方法。
+                        </p>
+                        <h3 id="2-REST 设计原则">2. REST 设计原则</h3>
+                        <p>
+                            在最基本的层面上，API 是一种机制，它支持应用程序或服务访问另一个应用程序或服务中的资源。访问资源的应用程序或服务是客户端，包含资源的应用程序或服务是服务器。 一些 API，例如 SOAP 或 XML-RPC，对开发人员规定了严格的框架。但是开发人员可以使用几乎任何编程语言开发 REST API，并支持各种数据格式。唯一的要求是，它们符合以下六个 REST 设计原则 – 也称为架构约束：
+                        </p>
+                        <span style="font-weight: bold; font-style: italic;">统一接口</span>
+                        <p>
+                            无论请求来自何处，对同一资源发出的所有 API 请求都应该看起来相同。REST API 应确保同一份数据（例如，用户的姓名或电子邮件地址）仅属于一个统一资源标识符 (URI)。资源不应太大，但应包含客户可能需要的每条信息。
+                        </p>
+                        <span style="font-weight: bold; font-style: italic;">客户端与服务器解耦</span>
+                        <p>
+                            在 REST API 设计中，客户端和服务器应用程序必须完全相互独立。客户端应用程序应该知道的唯一信息是所请求资源的 URI，它不能以任何其他方式与服务器应用程序交互。同样，除了通过 HTTP 将客户端应用程序传递到所请求的数据外，服务器应用程序不应修改客户端应用程序。
+                        </p>
+                        <span style="font-weight: bold; font-style: italic;">无状态</span>
+                        <p>
+                            REST API 是无状态的，这意味着每个请求都需要包含处理它所需的所有信息。换言之，REST API 不需要任何服务器端会话。不允许服务器应用程序存储与客户端请求相关的任何数据。
+                        </p>
+                        <span style="font-weight: bold; font-style: italic;">可缓存性</span>
+                        <p>
+                            如果可能，资源应该可以在客户端或服务器端缓存。服务器响应还需要包含有关是否允许对已交付资源进行缓存的信息。目标是提高客户端的性能，同时提高服务器端的可扩展性  
+                        </p>
+                        <span style="font-weight: bold; font-style: italic;">分层系统架构</span>
+                        <p>
+                            在 REST API 中，调用和响应会经过多个不同的层。根据经验，不要假定客户端和服务器应用程序直接相互连接。通信环路中可能包含多个不同的中介服务器。REST API 的设计需要确保客户端和服务器都无法判断自己是与最终应用程序还是与中介服务器通信。
+                        </p>
+                        <span style="font-weight: bold; font-style: italic;">按需编码（可选）</span>
+                        <p>
+                            REST API 通常发送静态资源，但在某些情况下，响应也可以包含可执行代码（例如 Java 小程序）。在这些情况下，代码只应按需运行。
+                        <h3 id="3-REST API 的工作原理">3. REST API 的工作原理</h3>
+                        <p>
+                            REST API 通过 HTTP 请求进行通信，执行标准的数据库功能，如在资源中创建、读取、更新和删除记录（也称为 CRUD）。
                         </p>
                         <p>
-                            Spring 是开放源代码项目，可提供一种简化的创建 Java 应用的模块化方法。Spring 项目系列于 2003 年启动，以响应早期 Java 开发的复杂性，并提供对开发 Java 应用的支持。Spring 这个名称通常是指应用程序框架本身或整个项目组或模块。Java Spring Boot 是作为 Spring 框架的扩展构建的一个特定模块。
+                            例如，REST API 会使用 GET 请求来检索记录。POST 请求用于创建新记录。PUT 请求用于更新记录，DELETE 请求用于删除记录。所有 HTTP 方法都可以在 API 调用中使用。精心设计的 REST API 类似于在具有内置 HTTP 功能的 Web 浏览器中运行的网站。
                         </p>
                         <p>
-                            因此，在 Spring 框架、Spring Boot 和 Java 如何协同工作的背景后，Spring Boot 的定义为：简化并加速 Java 框架 Spring 内的 Web 应用和微服务开发。
+                            任何特定时刻或时间戳的资源状态称为资源表示。几乎可以采用任何格式将该信息传递到客户端，包括 JavaScript 对象表示法 (JSON)、HTML、XLT、Python、PHP 或纯文本。JSON 很受欢迎，因为它既能被人类读取，也能被机器读取，而且与编程语言无关。
                         </p>
                         <p>
-                            有时，由于语言和/或平台是 Java，因此称为“Java Spring Boot”、“Java Spring 框架”或“Spring Boot 框架”。但是，由于还有其他适用于 Java 的第三方框架（如 Play 和 Hibernate），因此称为“Spring”和“Spring Boot”更准确
+                            在 REST API 调用中，请求标头和参数也很重要，因为它们包含重要的标识信息，例如元数据、授权、统一资源标识符 (URI)、缓存、cookie 等。精心设计的 REST API 中会使用请求标头和响应标头以及传统的 HTTP 状态代码。
                         </p>
-                        <h3 id="2-Spring 和 Spring Boot 之间有什么区别？">2. Spring 和 Spring Boot 之间有什么区别？</h3>
-                        <p>
-                            如前所述，Spring 是基于 Java 的开放源代码应用框架，其范围涵盖许多小型项目。其他热门 Spring 项目包括 Spring Data、Spring Cloud 和 Spring Security，这里仅举其中几个例子。要了解 Spring Boot 与Spring 之间的区别，重要的是要认识到，虽然核心功能可能存在差异，但它们都属于 Spring 系列。
-                        </p>
-                        <h3 id="3-什么是微服务？">3. 什么是微服务？</h3>
-                        <p>
-                            微服务 是软件开发体系结构的方法。微服务中的“微”是指以较小、可管理的片段或组件的形式交付代码，并且每个“服务”或核心功能都独立于其他服务进行创建和部署。独立组件通过称为协定的指定 API 文档协同工作并相互通信。这些微服务的小规模和相对隔离的特征具有许多优点。例如，由于这种类型的体系结构是分布式且松散耦合的，因此即使有一个组件发生故障，也不会导致整个应用中断。其他优点包括，提高生产力、简化维护任务、增强业务一致性，以及提升容错能力。
-                        </p>
-                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/what-is-java-spring-boot_mt1-dependency-injection?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1466&hei=866&qlt=100&fmt=png-alpha&fit=constrain"
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*-VVfwfT9IKVD_OMYgKToIQ.png"
                             style="zoom:200%;" />
-                        <h3 id="4-什么是依赖项注入？">4. 什么是依赖项注入？</h3>
+                        <h3 id="4-REST API 最佳实践">4. REST API 最佳实践</h3>
                         <p>
-                            依赖项注入 (DI) 是用于实现控制反转 (IoC) 的设计技术。在面向对象的编程（如 Java）中，依赖于其他对象的对象称为依赖项。通常，接收对象或依赖对象称为客户端，客户端依赖的对象称为服务。因此，依赖项注入会将服务传递给客户端，或者使用称为注入程序的代码注入依赖项。DI 无需客户端来指定使用哪些服务，因为注入程序会为客户端完成这项工作。
+                            尽管灵活性是 REST API 设计的一大优势，但是这种灵活性同样也容易设计出不连续或性能不佳的 API。因此，专业开发人员分享了 REST API 规范的最佳实践。
                         </p>
-                        <h3 id="5-什么是约定优于配置？">5. 什么是约定优于配置？</h3>
                         <p>
-                            约定优于配置（有时称为按约定编码）是应用程序框架中使用的一个概念，用于减少开发人员必须做出的决策数。此概念遵循“不要自我重复”原则以避免编写冗余代码。按约定编码力求保持灵活性，同时允许开发人员仅针对自己创建的应用的非常规方面编写代码。当应用的所需行为与建立的约定匹配时，应用将默认运行，而无需编写配置文件。仅当所需行为偏离约定时，开发人员才需要显式写入配置文件。
+                            OpenAPI 规范 (OAS) 建立了一个接口来描述 API，该描述方式支持任何开发人员或应用程序发现它，并完全理解其参数与能力。这些信息包括可用端点、每个端点上允许的操作、操作参数、身份验证方法等。最新版本的 OAS3 包括手动操作工具，例如 OpenAPI Generator，可以用不同的编程语言生成 API 客户端和服务器存根。
                         </p>
-                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/what-is-java-spring-boot_mt1-convention?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1466&hei=866&qlt=100&fmt=png-alpha&fit=constrain"
-                            style="zoom:150%;" />
+                        <p>
+                            确保 REST API 的安全也要从行业最佳实践开始。使用哈希算法确保密码安全，使用 HTTPS 实现安全数据传输。类似 OAuth 2.0 的授权框架可以帮助限制第三方应用程序的权限。
+                        </p>
+                        <p>
+                            使用 HTTP 标头中的时间戳，API 还可以拒绝在特定时间段后到达的任何请求。其他确保只有授权客户端才能访问 API 的方法包括参数验证和 JSON Web 令牌。
+                        </p>
+                        <!-- <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/what-is-java-spring-boot_mt1-convention?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1466&hei=866&qlt=100&fmt=png-alpha&fit=constrain"
+                            style="zoom:150%;" /> -->
                     </div>
                     <div class="post-footer" id="post-footer">
                         <div class="post-info">
@@ -261,26 +289,26 @@
                                 <div class="post-info-md"></div>
                                 <div class="post-info-share">
                                     <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter"
-                                            data-url="https://linxianwen.github.io/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D/"
-                                            data-title="Sprignboot的介绍" data-hashtags="springboot,Java"><i
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-title="一、Kubernetes的介绍" data-hashtags="K8S,微服务"><i
                                                 class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);"
                                             title="分享到 Facebook" data-sharer="facebook"
-                                            data-url="https://linxianwen.github.io/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D/"
-                                            data-hashtag="springboot"><i class="fab fa-facebook-square fa-fw"></i></a><a
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-hashtag="K8S"><i class="fab fa-facebook-square fa-fw"></i></a><a
                                             href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin"
-                                            data-url="https://linxianwen.github.io/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D/"><i
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"><i
                                                 class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);"
                                             title="分享到 WhatsApp" data-sharer="whatsapp"
-                                            data-url="https://linxianwen.github.io/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D/"
-                                            data-title="Springboot的介绍" data-web><i
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-title="一、Kubernetes的介绍" data-web><i
                                                 class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);"
                                             title="分享到 Line" data-sharer="line"
-                                            data-url="https://linxianwen.github.io/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D/"
-                                            data-title="Springboot的介绍"><i
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-title="一、Kubernetes的介绍"><i
                                                 data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a
                                             href="javascript:void(0);" title="分享到 微博" data-sharer="weibo"
-                                            data-url="https://linxianwen.github.io/2024-7-10-Spring-boot-%E4%BB%8B%E7%BB%8D/"
-                                            data-title="Springboot的介绍"><i class="fab fa-weibo fa-fw"></i></a></span>
+                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-title="一、Kubernetes的介绍"><i class="fab fa-weibo fa-fw"></i></a></span>
                                 </div>
                             </div>
                         </div>
@@ -396,7 +424,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script>
     <script
-        type="text/javascript">window.config = { "code": { "copyTitle": "复制到剪贴板", "maxShownLines": 10 }, "comment": { "utterances": { "darkTheme": "github-dark", "issueTerm": "pathname", "label": "", "lightTheme": "github-light", "repo": "linxianwen/xianwen_hugo-blog-talk" } }, "lightGallery": { "actualSize": false, "exThumbImage": "data-thumbnail", "hideBarsDelay": 2000, "selector": ".lightgallery", "speed": 400, "thumbContHeight": 80, "thumbWidth": 80, "thumbnail": true }, "search": { "algoliaAppID": "PASDMWALPK", "algoliaIndex": "index.zh-cn", "algoliaSearchKey": "b42948e51daaa93df92381c8e2ac0f93", "highlightTag": "em", "maxResultLength": 10, "noResultsFound": "没有找到结果", "snippetLength": 50, "type": "algolia" } };</script>
+        type="text/javascript">window.config = { "code": { "copyTitle": "复制到剪贴板", "maxShownLines": 10 }, "comment": { "utterances": { "darkTheme": "github-dark", "issueTerm": "pathname", "label": "", "lightTheme": "github-light", "repo": "yeliansong/liansong_hugo-blog-talk" } }, "lightGallery": { "actualSize": false, "exThumbImage": "data-thumbnail", "hideBarsDelay": 2000, "selector": ".lightgallery", "speed": 400, "thumbContHeight": 80, "thumbWidth": 80, "thumbnail": true }, "search": { "algoliaAppID": "PASDMWALPK", "algoliaIndex": "index.zh-cn", "algoliaSearchKey": "b42948e51daaa93df92381c8e2ac0f93", "highlightTag": "em", "maxResultLength": 10, "noResultsFound": "没有找到结果", "snippetLength": 50, "type": "algolia" } };</script>
     <script type="text/javascript" src="/js/theme.min.js"></script>
 </body>
 
