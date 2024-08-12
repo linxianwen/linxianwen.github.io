@@ -25,9 +25,9 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="canonical"
-        href="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/" />
+        href="https://linxianwen.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/" />
     <link rel="next"
-        href="https://yeliansong.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+        href="https://linxianwen.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/css/style.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
@@ -89,7 +89,7 @@
                             <select class="language-select" id="language-select-desktop"
                                 onchange="location = this.value;">
                                 <option value="/en/rest-api/" selected>English</option>
-                                <option value="/../2024-08-06-RESTAPI-介绍/">简体中文</option>
+                                <option value="/../rest-api/">简体中文</option>
                             </select>
                         </a><span class="menu-item search" id="search-desktop">
                             <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
@@ -153,7 +153,7 @@
                         <select class="language-select" onchange="location = this.value;">
                             <option value="/en/rest-api/" selected>English
                             </option>
-                            <option value="/2024-08-06-RESTAPI-介绍/" selected>简体中文
+                            <option value="/../rest-api/">简体中文
                             </option>
                         </select>
                     </a>
@@ -169,17 +169,17 @@
         <main class="main">
             <div class="container">
                 <div class="toc" id="toc-auto">
-                    <h2 class="toc-title">目录</h2>
+                    <h2 class="toc-title">Index</h2>
                     <div class="toc-content" id="toc-content-auto"></div>
                 </div>
                 <article class="page single">
-                    <h1 class="single-title animated flipInX">RESTful API的介绍</h1>
-                    <h2 class="single-subtitle">RESTful API 读书笔记</h2>
+                    <h1 class="single-title animated flipInX">RESTful API's introduction</h1>
+                    <h2 class="single-subtitle">RESTful API note</h2>
                     <div class="post-meta">
                         <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author"
                                     class="author"><i class="fas fa-user-circle fa-fw"></i>Xianwen</a></span>&nbsp;<span
-                                class="post-category">收录于 <a href="/categories/architectural-style"><i
-                                        class="far fa-folder fa-fw"></i>RESTful API-学习笔记</a></span></div>
+                                class="post-category">Archived in <a href="/categories/architectural-style"><i
+                                        class="far fa-folder fa-fw"></i>RESTful API-learning notes</a></span></div>
                         <div class="post-meta-line">
                             </span>
                         </div>
@@ -192,7 +192,7 @@
                             title="RESTful API学习的读书笔记" /></div>
                     <div class="details toc" id="toc-static" kept="">
                         <div class="details-summary toc-title">
-                            <span>目录</span>
+                            <span>Index</span>
                             <span><i class="details-icon fas fa-angle-right"></i></span>
                         </div>
                         <div class="details-content toc-content" id="toc-content-static">
@@ -200,10 +200,18 @@
                                 <ul>
                                     <li>
                                         <ul>
-                                            <li><a href="#1-什么是 REST API？">1. 什么是 REST API？</a></li>
-                                            <li><a href="#2-REST 设计原则">2. REST 设计原则</a></li>
-                                            <li><a href="#3-REST API 的工作原理">3. REST API 的工作原理</a></li>
-                                            <li><a href="#4-REST API 最佳实践">4. REST API 最佳实践</a></li>
+                                            <li><a href="#1-What is a REST API?">1. What is a REST API?</a></li>
+                                            <li><a href="#2-History of REST APIs">2. History of REST APIs</a></li>
+                                            <li><a href="#3-What are REST API standards, and why are they important?">3.
+                                                    What are REST API standards, and why are they important?</a></li>
+                                            <li><a href="#4-How do REST APIs work?">4. How do REST APIs work?</a></li>
+                                            <li><a href="#5-REST vs. SOAP APIs">5. REST vs. SOAP APIs</a></li>
+                                            <li><a href="#6-What are REST APIs used for?">6. What are REST APIs used
+                                                    for?</a></li>
+                                            <li><a href="#7-The benefits of using REST APIs">7. The benefits of using
+                                                    REST APIs</a></li>
+                                            <li><a href="#8-Challenges of using REST APIs">8. Challenges of using REST
+                                                    APIs</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -211,82 +219,222 @@
                         </div>
                     </div>
                     <div class="content" id="content">
-                        <h3 id="1-什么是 REST API？">1. 什么是 REST API？</h3>
-                        <p>REST API（也称为 RESTful API 或 RESTful Web API）是一种 应用程序编程接口 (API)，它符合 具象状态传输 (REST)
-                            架构风格的设计原则。REST API 提供了一种灵活、轻量级的方式来集成应用程序并连接微服务架构中的组件。
-                        </p>
+                        <h3 id="1-What is a REST API?">1. What is a REST API?</h3>
                         <p>
-                            REST 最早是由计算机科学家 Roy Fielding 博士于 2000 年在他的博士论文中定义，它为开发人员提供了相对较高的灵活性、可扩展性和效率。出于这些原因，REST API
-                            已成为在微服务架构中连接组件和应用程序的常用方法。
+                            A REST API, also known as a RESTful API, is a simple, uniform interface that is used to make
+                            data, content, algorithms, media, and other digital resources available through web URLs.
+                            REST APIs are the most common APIs used across the web today.
                         </p>
-                        <h3 id="2-REST 设计原则">2. REST 设计原则</h3>
+                        <h3 id="2-History of REST APIs">2. History of REST APIs</h3>
+                        <ul>
+                            <li aria-level="1"><b>Before REST:</b> Developers used SOAP to integrate APIs by handwriting
+                                an XML document with a Remote Procedure Call (RPC) in the body. Then, developers would
+                                specify the endpoint and POST their SOAP envelope to that endpoint.</li>
+                            <p></p>
+                            <li aria-level="1"><b>2000:</b> A group of developers, including Roy Fielding, decided to
+                                create a standard so any one server can talk to any other server. He defined the
+                                constraints for REST APIs. Since these rules are universal, it is simpler for developers
+                                to integrate necessary software.</li>
+                            <p></p>
+                            <li aria-level="1"><b>2002:</b> In 2002, eBay built its REST API, expanding its market to
+                                any site that could access its API. As a result, it caught the attention of Amazon,
+                                another e-commerce giant, who announced their API in 2002.</li>
+                            <p></p>
+                            <li aria-level="1"><b>2004-2006:</b> In 2004, Flickr then launched their RESTful API,
+                                enabling bloggers to easily embed images onto their sites as well as their social media
+                                feeds. Then, Facebook and Twitter both released their APIs two years later when they
+                                realized a large number of developers were scraping the sites and creating
+                                “Frankenstein” APIs.</li>
+                            <p></p>
+                            <li aria-level="1"><b>2006-Now:</b> Today, developers have embraced RESTful APIs fully –
+                                using them to add functionality within their websites and applications. Postman
+                                simplifies the process of building an API and streamlines collaboration so you can
+                                create APIs faster.</li>
+                        </ul>
+                        <h3 id="3-What are REST API standards, and why are they important?">3. What are REST API
+                            standards, and why are they important?</h3>
+                        <p>REST API standards are the common language for our digital world. They not only provide a
+                            consistent way for developers to produce and consume APIs, but also improve the health and
+                            performance of applications that rely on them.</p>
+                        <p>To make an API service RESTful, six guiding constraints must be satisfied:</p>
+                        <strong>Use of a uniform interface (UI)</strong>
+                        <p>To have a uniform interface, multiple architectural constraints are required to guide the
+                            behavior of components. Additionally, resources should be unique so they are identifiable
+                            through a single URL.</p>
+                        <strong>Client-server based</strong>
+                        <p>The uniform interface separates user concerns from data storage concerns. The client’s domain
+                            concerns UI and request-gathering, while the server’s domain concerns focus on data access,
+                            workload management, and security. The separation of client and server enables each to be
+                            developed and enhanced independently of the other.</p>
+                        <strong>Stateless operations</strong>
+                        <p>Request from client to server must contain all of the information necessary so that the
+                            server can understand and process it accordingly. The server can’t hold any information
+                            about the client state.</p>
+                        <strong>RESTful resource caching</strong>
+                        <p>Data within a response to a request must be labeled as cacheable or non-cacheable.</p>
+                        <strong>Layered system</strong>
+                        <p>REST allows for an architecture composed of hierarchical layers. In doing so, each component
+                            cannot see beyond the immediate layer with which they are interacting.</p>
+                        <strong>Code on demand</strong>
+                        <p>Because REST APIs download and execute code in the form of applets or scripts, there’s more
+                            client functionality. Oftentimes, a server will send back a static representation of
+                            resources in the form of <a href="https://blog.postman.com/what-is-xml/"
+                                data-wpel-link="internal" target="_self">XML</a> or <a
+                                href="https://blog.postman.com/what-is-json/" data-wpel-link="internal"
+                                target="_self">JSON</a>. Servers can also send executable codes to the client when
+                            necessary.</p>
+                        <h3 id="4-How do REST APIs work?">4. How do REST APIs work?</h3>
                         <p>
-                            在最基本的层面上，API 是一种机制，它支持应用程序或服务访问另一个应用程序或服务中的资源。访问资源的应用程序或服务是客户端，包含资源的应用程序或服务是服务器。 一些 API，例如
-                            SOAP 或 XML-RPC，对开发人员规定了严格的框架。但是开发人员可以使用几乎任何编程语言开发 REST API，并支持各种数据格式。唯一的要求是，它们符合以下六个 REST
-                            设计原则 – 也称为架构约束：
+                        <p>To understand how REST APIs work, it is critical to understand resources. A resource can be
+                            any information that could be named, such as a document or image, a collection of other
+                            resources, a non-virtual object, and more. Meanwhile, REST uses a resource identifier to
+                            recognize the specific resource involved in an interaction between components.</p>
+                        <p>The method is the type of request you send to the server. The four main resource methods that
+                            are associated with REST APIs are:</p>
+                        <ol>
+                            <li aria-level="1"><b>GET: </b>This method allows for the server to find the data you
+                                requested and sends it back to you.</li>
+                            <li aria-level="1"><b>PUT:</b> If you perform the ‘PUT’ request, then the server will update
+                                an entry in the database.</li>
+                            <li aria-level="1"><b>POST:</b> This method permits the server to create a new entry in the
+                                database.</li>
+                            <li aria-level="1"><b>DELETE: </b>This method allows the server to delete an entry in the
+                                database.</li>
+                        </ol>
                         </p>
-                        <span style="font-weight: bold; font-style: italic;">统一接口</span>
+                        <h3 id="5-REST vs. SOAP APIs">5. REST vs. SOAP APIs</h3>
                         <p>
-                            无论请求来自何处，对同一资源发出的所有 API 请求都应该看起来相同。REST API 应确保同一份数据（例如，用户的姓名或电子邮件地址）仅属于一个统一资源标识符
-                            (URI)。资源不应太大，但应包含客户可能需要的每条信息。
+                        <p>There has always been a debate in the application programming interface (API) industry about
+                            <a href="https://blog.postman.com/soap-vs-rest/" data-wpel-link="internal"
+                                target="_self">SOAP vs. REST</a>. SOAP and REST are two different approaches for
+                            building APIs. SOAP is considered a protocol, while REST is considered a set of guidelines.
+                            REST allows for flexible API development using methods like JSON, URLs, and <a
+                                href="https://blog.postman.com/what-is-http/" data-wpel-link="internal"
+                                target="_self">HTTP</a>, while SOAP uses XML for sending data. To decide which
+                            architectural style is right for you, it is critical to know the good and the bad of
+                            building a proper design when planning for your next API.
                         </p>
-                        <span style="font-weight: bold; font-style: italic;">客户端与服务器解耦</span>
-                        <p>
-                            在 REST API 设计中，客户端和服务器应用程序必须完全相互独立。客户端应用程序应该知道的唯一信息是所请求资源的 URI，它不能以任何其他方式与服务器应用程序交互。同样，除了通过
-                            HTTP 将客户端应用程序传递到所请求的数据外，服务器应用程序不应修改客户端应用程序。
+                        <p><b>Simple Object Access Protocol (SOAP)</b> helps define messages exchanged between systems
+                            and used by applications. In contrast to REST, SOAP is an actual protocol that provides you
+                            with stricter detail about what an API does. Even though SOAP may not be a suitable choice
+                            for newer mobile developers, it provides a solid foundation for enterprise resources
+                            integrations. The main takeaway here is that SOAP provides a solid, reliable pattern you can
+                            use when you don’t require a more date-centric <a
+                                href="https://www.postman.com/api-platform/api-design/" data-wpel-link="exclude">API
+                                design</a> pattern like REST.</p>
+                        <p><b>REpresentational State Transfer (REST)</b> is a software architectural style of delivering
+                            APIs dependent on the HTTP specification the web is built upon. REST APIs utilize the
+                            uniform resource locator (URL) to make data available using the web. This helps to
+                            ultimately maximize usage of <a href="https://blog.postman.com/what-are-http-methods/"
+                                data-wpel-link="internal" target="_self">HTTP methods</a>, headers, and other essential
+                            web building blocks. Unlike SOAP, REST is a common starting place for most teams when they
+                            begin investing in APIs because it provides a simple and widely recognized set of design
+                            patterns.</p>
                         </p>
-                        <span style="font-weight: bold; font-style: italic;">无状态</span>
-                        <p>
-                            REST API 是无状态的，这意味着每个请求都需要包含处理它所需的所有信息。换言之，REST API 不需要任何服务器端会话。不允许服务器应用程序存储与客户端请求相关的任何数据。
+                        <h3 id="6-What are REST APIs used for?">6. What are REST APIs used for?</h3>
+                        <p>One of the key advantages of REST is that they provide a lot of flexibility, which enables
+                            you to do more with this particular API. Listed below are examples of what REST APIs are
+                            useful for<b>: </b></p>
+                        <strong>Cloud applications</strong>
+                        <p>REST APIs are useful in cloud applications because their calls are stateless. If something
+                            fails, stateless components can smoothly redeploy and scale to accommodate load changes.
+                            Document sharing, storage, finance and accounting, customer relationship management (CRM),
+                            inventory control, and gathering information are some of the jobs performed with cloud-based
+                            applications.</p>
+                        <strong>Cloud services</strong>
+                        <p>REST is also helpful in cloud services because you’d need to control how the URL is decoded
+                            to bind to a service through an API. That being said, cloud computing and microservices will
+                            undoubtedly make RESTful API design the rule of the future.</p>
+                        <strong>Web use </strong>
+                        <p>Since REST is not tied to client-side technology, these APIs can be accessible from a
+                            client-side web project, an iOS app, an IoT device, or a Windows Phone. You are able to
+                            build the infrastructure for your organization without worrying about being stuck to a
+                            particular client-side stack.</p>
+                        <h3 id="7-The benefits of using REST APIs">7. The benefits of using REST APIs</h3>
+                        <p>REST is preferable to SOAP for several reasons. Here are a few advantages that REST APIs
+                            have:</p>
+                        <ul>
+                            <li aria-level="1"><b>Scalability: </b>Due to the separation between client and server, the
+                                product can be scaled by development teams without much difficulty.</li>
+                            <li aria-level="1"><b>Flexibility and Portability: </b>Since REST-style APIs require data
+                                from one of the requests to be sent properly, it’s possible to perform a migration from
+                                one server to another. It’s also possible to carry out changes on the database at any
+                                time.</li>
+                            <li aria-level="1"><b>Independence: </b>With the separation between client and server, the
+                                protocol makes it easier for developments across a project to take place independently.
+                                REST APIs are also adaptable to the working syntax and platform, which offers
+                                opportunities to test several environments at a time while developing.</li>
+                            <li aria-level="1"><b>Lightweight: </b>REST APIs are lightweight and fast, as they utilize
+                                the HTTP standard that supports multiple formats including JSON, XML, and HTML. This
+                                feature makes it ideal for mobile app projects, IoT devices, and much more.</li>
+                        </ul>
+                        <h3 id="8-Challenges of using REST APIs">8. Challenges of using REST APIs</h3>
+                        <p>Along with design and architectural constraints, individuals will have to deal with some
+                            challenges when using REST APIs. These challenges may include:</p>
+                        <h4><b>REST endpoint consensus </b></h4>
+                        <p>It doesn’t matter how you format your URLs, but consistency across your API is crucial.
+                            Unfortunately, the number of combinations increases further with more complex operations. As
+                            a result, consistency can be difficult to achieve on large codebases with many developers.
                         </p>
-                        <span style="font-weight: bold; font-style: italic;">可缓存性</span>
-                        <p>
-                            如果可能，资源应该可以在客户端或服务器端缓存。服务器响应还需要包含有关是否允许对已交付资源进行缓存的信息。目标是提高客户端的性能，同时提高服务器端的可扩展性
+                        <h4"><b>REST API versioning </b></h4>
+                        <p><a href="https://www.postman.com/api-platform/api-versioning/" data-wpel-link="exclude">API
+                                versioning</a> is the practice of creating multiple versions of an API to accommodate
+                            changes or updates without disrupting consumers. To prevent compatibility issues, APIs are
+                            often versioned. However, old endpoints remain active, which leads to an increase in
+                            workload, as multiple APIs are maintained.</p>
+                        <h4"><b>REST API authentication</b></h4>
+                        <p><a href="https://www.postman.com/api-platform/api-authentication/"
+                                data-wpel-link="exclude">API authentication</a> will vary depending on the context of
+                            its use. Some third-party applications are considered to be logged-in users with specific
+                            rights and permissions. Other third-party applications can be used by registered users where
+                            they can only access their data such as looking for email or documents. There could be
+                            upwards of 20 different authorization approaches in use, dramatically increasing the
+                            difficulty of ever getting to make your first <a
+                                href="https://blog.postman.com/what-is-api-request/" data-wpel-link="internal"
+                                target="_self">API call</a>. With so much friction from the start, developers sometimes
+                            end up walking away.</p>
+                        <p>Four common authentication methods include:</p>
+                        <h4>HTTP authentication</h4>
+                        <p>HTTP provides authentication schemes for REST API implementation. Two common schemes are:</p>
+                        <ul>
+                            <li><b>Basic authentication: </b>HTTP basic authentication (BA) is a simple technique for
+                                controlling access to web resources. It doesn&#8217;t require cookies, session
+                                identifiers, or login pages. Instead, it uses standard fields in the HTTP header.</li>
+                            <li><b>Bearer authentication: </b>Bearer authentication, also known as token authentication,
+                                is an HTTP authentication scheme that involves the use of bearer tokens for security.
+                            </li>
+                        </ul>
+                        <h4>API keys</h4>
+                        <p>One way to authenticate REST APIs is with API keys. When a client connects to a server for
+                            the first time, it is given a unique identifier. This unique <a
+                                href="https://blog.postman.com/what-is-an-api-key" data-wpel-link="internal"
+                                target="_self">API key</a> is then utilized for authentication on every subsequent
+                            request to retrieve resources. It&#8217;s important to note that API keys have security
+                            risks because they must be transmitted with each request and can therefore be intercepted.
                         </p>
-                        <span style="font-weight: bold; font-style: italic;">分层系统架构</span>
-                        <p>
-                            在 REST API 中，调用和响应会经过多个不同的层。根据经验，不要假定客户端和服务器应用程序直接相互连接。通信环路中可能包含多个不同的中介服务器。REST API
-                            的设计需要确保客户端和服务器都无法判断自己是与最终应用程序还是与中介服务器通信。
-                        </p>
-                        <span style="font-weight: bold; font-style: italic;">按需编码（可选）</span>
-                        <p>
-                            REST API 通常发送静态资源，但在某些情况下，响应也可以包含可执行代码（例如 Java 小程序）。在这些情况下，代码只应按需运行。
-                        <h3 id="3-REST API 的工作原理">3. REST API 的工作原理</h3>
-                        <p>
-                            REST API 通过 HTTP 请求进行通信，执行标准的数据库功能，如在资源中创建、读取、更新和删除记录（也称为 CRUD）。
-                        </p>
-                        <p>
-                            例如，REST API 会使用 GET 请求来检索记录。POST 请求用于创建新记录。PUT 请求用于更新记录，DELETE 请求用于删除记录。所有 HTTP 方法都可以在 API
-                            调用中使用。精心设计的 REST API 类似于在具有内置 HTTP 功能的 Web 浏览器中运行的网站。
-                        </p>
-                        <p>
-                            任何特定时刻或时间戳的资源状态称为资源表示。几乎可以采用任何格式将该信息传递到客户端，包括 JavaScript 对象表示法 (JSON)、HTML、XLT、Python、PHP
-                            或纯文本。JSON 很受欢迎，因为它既能被人类读取，也能被机器读取，而且与编程语言无关。
-                        </p>
-                        <p>
-                            在 REST API 调用中，请求标头和参数也很重要，因为它们包含重要的标识信息，例如元数据、授权、统一资源标识符 (URI)、缓存、cookie 等。精心设计的 REST API
-                            中会使用请求标头和响应标头以及传统的 HTTP 状态代码。
-                        </p>
-                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*-VVfwfT9IKVD_OMYgKToIQ.png"
-                            style="zoom:200%;" />
-                        <h3 id="4-REST API 最佳实践">4. REST API 最佳实践</h3>
-                        <p>
-                            尽管灵活性是 REST API 设计的一大优势，但是这种灵活性同样也容易设计出不连续或性能不佳的 API。因此，专业开发人员分享了 REST API 规范的最佳实践。
-                        </p>
-                        <p>
-                            OpenAPI 规范 (OAS) 建立了一个接口来描述
-                            API，该描述方式支持任何开发人员或应用程序发现它，并完全理解其参数与能力。这些信息包括可用端点、每个端点上允许的操作、操作参数、身份验证方法等。最新版本的 OAS3
-                            包括手动操作工具，例如 OpenAPI Generator，可以用不同的编程语言生成 API 客户端和服务器存根。
-                        </p>
-                        <p>
-                            确保 REST API 的安全也要从行业最佳实践开始。使用哈希算法确保密码安全，使用 HTTPS 实现安全数据传输。类似 OAuth 2.0
-                            的授权框架可以帮助限制第三方应用程序的权限。
-                        </p>
-                        <p>
-                            使用 HTTP 标头中的时间戳，API 还可以拒绝在特定时间段后到达的任何请求。其他确保只有授权客户端才能访问 API 的方法包括参数验证和 JSON Web 令牌。
-                        </p>
-                        <!-- <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/what-is-java-spring-boot_mt1-convention?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1466&hei=866&qlt=100&fmt=png-alpha&fit=constrain"
-                            style="zoom:150%;" /> -->
+                        <h4>OAuth</h4>
+                        <p><a href="https://blog.postman.com/what-is-oauth-2-0" data-wpel-link="internal"
+                                target="_self">OAuth</a> is a security protocol that offers highly secure login access
+                            to any system by combining passwords and tokens. The authorization process starts with the
+                            server requesting a password, followed by an additional token to complete the process.</p>
+                        <h4><b>REST API security </b></h4>
+                        <p>Even though RESTful APIs provide a simpler way to access and manipulate your application, <a
+                                href="https://blog.postman.com/self-signed-ssl-certificate-troubleshooting/"
+                                data-wpel-link="internal" target="_self">security issues</a> can still happen. For
+                            example, a client can send thousands of requests every second and crash your server. Other
+                            <a href="https://www.postman.com/api-platform/api-security/" data-wpel-link="exclude">REST
+                                API security</a> challenges include:</p>
+                        <ul>
+                            <li aria-level="1">Lack of proper authentication</li>
+                            <li aria-level="1">Absence of rate limiting and throttling</li>
+                            <li aria-level="1">Failure to encrypt payload data</li>
+                            <li aria-level="1">Incorrect implementation of HTTPS</li>
+                            <li aria-level="1">Weak API keys that are easily compromised</li>
+                        </ul>
+                        <h4><b>Multiple requests and unnecessary data</b></h4>
+                        <p>A response can contain more data than you need or require further requests to access all of
+                            the data.</p>
+
                     </div>
                     <div class="post-footer" id="post-footer">
                         <div class="post-info">
@@ -300,14 +448,14 @@
                                 <div class="post-info-md"></div>
                                 <div class="post-info-share">
                                     <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter"
-                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-url="https://linxianwen.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
                                             data-title="一、Kubernetes的介绍" data-hashtags="K8S,微服务"><i
                                                 class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);"
                                             title="分享到 Facebook" data-sharer="facebook"
-                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
+                                            data-url="https://linxianwen.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
                                             data-hashtag="K8S"><i class="fab fa-facebook-square fa-fw"></i></a><a
                                             href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin"
-                                            data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"><i
+                                            data-url="https://linxianwen.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"><i
                                                 class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);"
                                             title="分享到 WhatsApp" data-sharer="whatsapp"
                                             data-url="https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"
